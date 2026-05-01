@@ -11,6 +11,7 @@ This repository contains R code for the Composite Categorical Regression (CCR) m
 | `CCR_application_logistic_estimation.R` | Fits the survey-weighted CCR logistic regression model in the BRFSS application. |
 | `CCR_application_logistic_bootstrap.R` | Performs bootstrap resampling for inference in the BRFSS application. |
 | `CCR_application_bootstrap_summary.R` | Summarizes the bootstrap results and exports point estimates and confidence intervals. |
+| `data_1923_ungrp.RData` | Preprocessed BRFSS analytic dataset used by the application scripts. |
 
 ## Software requirements
 
@@ -56,13 +57,13 @@ source("CCR_application_logistic_bootstrap.R")
 source("CCR_application_bootstrap_summary.R")
 ```
 
-The application scripts require the preprocessed BRFSS analytic dataset used in the manuscript. The expected input file is:
+The application scripts use the preprocessed BRFSS analytic dataset included with the repository. The expected input file is:
 
 ```text
 data_1923_ungrp.RData
 ```
 
-The file should contain the analytic data object used by the application scripts. Output files, including estimated CCR weights, fitted model objects, bootstrap replicates, and confidence-interval summaries, are saved to the working directory.
+The file contains the analytic data object used by the application scripts. Output files, including estimated CCR weights, fitted model objects, bootstrap replicates, and confidence-interval summaries, are saved to the working directory.
 
 ## Method summary
 
@@ -72,4 +73,4 @@ The optimization is implemented using `nlminb()` with box constraints on the CCR
 
 ## Notes
 
-The simulation scripts can be run without external data. The BRFSS application scripts require the preprocessed analytic dataset and may take additional time when running the bootstrap procedure.
+The simulation scripts can be run without external data. The BRFSS application scripts use the included preprocessed analytic dataset and may take additional time when running the bootstrap procedure.
