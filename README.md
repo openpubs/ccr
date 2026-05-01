@@ -69,8 +69,6 @@ The file contains the analytic data object used by the application scripts. Outp
 
 CCR constructs a composite exposure index from dummy variables representing categorical exposures. The dummy-specific CCR weights are constrained to be nonnegative and normalized to sum to one. In the BRFSS application, this index is included in a survey-weighted logistic regression model along with adjustment covariates.
 
-The optimization is implemented using `nlminb()` with box constraints on the CCR weights. In the application, subject-level BRFSS survey sampling weights are incorporated through a survey-weighted objective function.
-
 ## Notes
 
 The simulation scripts can be run without external data. The BRFSS application scripts use the included preprocessed analytic dataset and may take additional time when running the bootstrap procedure.
