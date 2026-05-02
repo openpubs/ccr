@@ -1,6 +1,6 @@
 # Composite Categorical Regression (CCR)
 
-This repository contains R code for the Composite Categorical Regression (CCR) method used in the manuscript. The code is intended to support reproducibility of the proposed method, including simulation studies and the BRFSS application. Only the CCR method is included; competing penalization methods are not provided in this repository.
+This repository contains R code for the Composite Categorical Regression (CCR) method used in the manuscript. The code supports reproducibility of the proposed method, including simulation studies, an additional bootstrap-based type I error evaluation, and the BRFSS application. Only the CCR method is included; competing penalization methods are not provided in this repository.
 
 ## Files
 
@@ -8,6 +8,7 @@ This repository contains R code for the Composite Categorical Regression (CCR) m
 |---|---|
 | `CCR_simulation_unadjusted.R` | Runs the unadjusted simulation study for Gaussian and binary outcomes. |
 | `CCR_simulation_adjusted.R` | Runs the adjusted simulation study for Gaussian and binary outcomes. |
+| `CCR_type1_bootstrap.R` | Runs the bootstrap-based type I error simulation under the null setting. |
 | `CCR_application_logistic_estimation.R` | Fits the survey-weighted CCR logistic regression model in the BRFSS application. |
 | `CCR_application_logistic_bootstrap.R` | Performs bootstrap resampling for inference in the BRFSS application. |
 | `CCR_application_bootstrap_summary.R` | Summarizes the bootstrap results and exports point estimates and confidence intervals. |
@@ -32,7 +33,7 @@ Package usage differs by script; not every package is required for every file.
 
 ## Simulation studies
 
-The two simulation scripts are self-contained and can be run directly:
+The main simulation studies are contained in:
 
 ```r
 source("CCR_simulation_unadjusted.R")
@@ -45,7 +46,13 @@ Both scripts consider Gaussian and binary outcomes under three exposure-correlat
 rho_values <- c(0.2, 0.5, 0.8)
 ```
 
-The simulation output files are written to the working directory as Excel and RDS files. These outputs summarize exposure selection, prediction performance, coefficient estimation, and zero-weight frequencies for the CCR method.
+The additional bootstrap-based type I error simulation can be run separately:
+
+```r
+source("CCR_type1_bootstrap.R")
+```
+
+Simulation outputs are written to the working directory. These outputs summarize exposure selection, prediction performance, coefficient estimation, zero-weight frequencies, and bootstrap-based type I error evaluation for the CCR method.
 
 ## BRFSS application
 
